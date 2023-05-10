@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head>
+    <title>生命商店 汉化版(The Supplier&#39;s Complex cn) 在线玩 | MHHF灵动游戏,好游戏在线玩！</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="灵动游戏(www.mhhf.com)分享在线好游戏。" />
+    <meta name="keywords" content="MHHF,灵动官网,H5游戏,在线玩,原创游戏,独立游戏推荐,好游戏分享,耐玩的游戏,FLASH游戏中心" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=0.1,maximum-scale=10,user-scalable=yes">
+    <link type="text/css" href="https://www.mhhf.com/css/public.css?v=202211231126" rel="stylesheet" />
+    <link type="text/css" href="https://www.mhhf.com/css/global.css?v=202211231126" rel="stylesheet" />
+    <script type="text/javascript" src="https://www.mhhf.com/lib/jquery-1.7.2.min.js?v=202211231126"></script>
+    <script type="text/javascript" src="https://www.mhhf.com/lib/jquery.cookie.min.js?v=202211231126"></script>
+    <script type="text/javascript" src="https://www.mhhf.com/lib/common.js?v=202211231126"></script>
+    <script type="text/javascript" src="https://www.mhhf.com/lib/tips.js?v=202211231126"></script>
+    <script type="text/javascript" src="https://www.mhhf.com/lib/login.js?v=202211231126"></script>
+    <link href="https://www.mhhf.com/img/favicon.ico?v=202211231126" rel="shortcut icon" />
+    <script type="text/javascript">
+        var curUserData = {userId: -1, avatar: "", nickName: ""};
+        var errorData = {"30000": '未登录', "30001": '账号密码错误', "30002": '没有权限'};
+        function changeFrameHeight() {
+            var iframe = document.getElementById("iframe");
+            iframe.height = document.documentElement.clientHeight;
+        }
+        window.onresize = function() {
+            changeFrameHeight();
+        }
+        $(function () {
+            showUserInfo($("#avatarx").text().split(","));
+            if(curUserData.userId <= 0)
+                showSafeAuth();
+        });
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow:hidden
+        }
+
+    </style>
+</head>
+<body>
+    <iframe src="https://www.mhhf.com/files/game/6095/smsd/index.html"  id="iframe"  width="100%"  height="100%"  scrolling="auto"  frameborder="0"  onload="changeFrameHeight()"></iframe>
+    <div id="avatarx" style="display: none">1456397,https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJ1gBmicAqnJO45SVOic9I1PHfQiaHeh7BlPib37flWnxQ3DRwgjCBEuzgeia8Inn3npF64yXKzHtLAwFg/132,FSEXGT_197,0,0,0,0,zq1_2023@qq.com,1</div>
+    <div id="float_warn" style="display:none;position:absolute;z-index:99999;"><div class="alert_warning">帐号格式有误</div><iframe id="menu_cover" frameborder="0"></iframe></div>
+    <div id="float_tip" style="display:none;position:absolute;z-index:99999;"><div class="alert_tip">操作提示<iframe id="menu_cover" frameborder="0"></iframe></div></div>
+    <div class="_idialog floatlogin"  id="login_dialog" style="display:none">
+            <div class="title"><span class="text icon_user">请先登录灵动</span></div>
+            <div class="content">
+                <input type="hidden" id="floatlogin" value="0">
+                <div class="loginleft" >
+                    <div class="input name mauto"><input id="username" name="name" max="20" placeholder="请输入您的用户名" type="text"></div>
+                    <div class="input pass mauto mtop10"><input id="userpwd" name="pass" max="20" placeholder="密码" type="password"></div>
+                    <div id="loginmask" class="input pass mauto mtop20" style="border: none;display: none;">
+                        <input name="mask" max="20" placeholder="验证码" style="width: 40%;" type="password">
+                        <img class="hmask_code" src="">
+                    </div>
+                    <div class="btn submit mauto mtop10"><input id="ajaxLogin" name="submit" onclick="ajaxLogin()" value="立即登录" type="button"></div>
+                    <div class="left mauto mtop10"><label title="一个月内自动登录"><input name="autologin" type="checkbox"> 下次自动登录</label></div>
+                    <div class="right mauto mtop10">
+                        <a href="https://www.mhhf.com/findpass" class="alink">忘记密码</a> |  <a href="https://www.mhhf.com/register" class="alink" id="loginresult">注册账号</a>
+                    </div>
+                </div>
+                <div class="loginleft">
+                    <div>其他登录方式：</div>
+                    <div class="mtop10"><a class="btn1 icon_qq" href="https://www.mhhf.com/oauth/render/qq">QQ账号登录</a></div>
+                    <div class="mtop10"><a class="btn1 icon_weixin" href="https://www.mhhf.com/oauth/render/wx">微信账号登录</a></div>
+                </div>
+            </div>
+        </div>
+    <!--安全认证防沉迷-->
+    <!--防沉迷提示-->
+<div xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+    <!--防沉迷提示-->
+    <div  class="_idialog authtips" id="authtips" style="display:none">
+        <div><div class="authtitle"><span style="color: #f1c40f;">防沉迷提示</span></div>
+<div class="authtext">
+<p><span style="font-size: 16px;">根据未成年人防沉迷规定，您需要登录后才能继续游戏。<br />注：未成年人（18岁以下）无法进行游戏。</span></p>
+</div></div>
+        <div class="authgologin" onclick="show_ff_login()">立即登录</div>
+    </div>
+    <!--实名认证-->
+    <div  class="_idialog authdialog" id="authdialog" style="display:none">
+        <div class="authtitle">实名认证</div>
+        <div class="authtext1">根据防沉迷相关要求，您的帐号需要通过实名认证</div>
+        <div class="authbox">
+            <div class="authitem">
+                <div class="authitemleft">真实姓名</div>
+                <div class="authitemright">
+                    <input class="input_y" name="realname" />
+                </div>
+            </div>
+            <div class="authitem">
+                <div class="authitemleft">身份证号</div>
+                <div class="authitemright">
+                    <input class="input_y" name="idcard"/>
+                </div>
+            </div>
+        </div>
+        <div class="authnow" onclick="idCardAuth()" id="idCardAuth">立即认证</div>
+    </div>
+</div>
+    <!--安全提示-->
+    <div class="idialogshadow" id="idialogshadow" style="display:none"></div>
+    <div  class="_idialog safetytips" id="safetytips" style="display:none">
+            <div class="authtitle">安全提示</div>
+            <div class="authtext">
+                <p>帐号：<span id="user_name">
+                            FSEXGT_197</span></p>
+                <p>您的账号还未绑定邮箱</p>
+                <p>无法进行密码找回，请尽快绑定邮箱！</p>
+            </div>
+            <div class="bindbtnbox">
+                <div class="gobindemail">
+                    <a href="https://www.mhhf.com/member/security/email" target="_blank">去绑定</a>
+                </div>
+                <div class="huluebtn" onclick="hideSafetyTips()">忽略</div>
+            </div>
+        </div>
+</body>
+</html>
