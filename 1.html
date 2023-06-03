@@ -11,7 +11,7 @@ if(isset($_FILES['file'])) {
 }
 ?>
 <?php
-$dir = "uploads/";
+$dir = "http://xn--123-9i9d979b.chuangzhi.cn.eu.org/uploads/";
 $files = scandir($dir);
 foreach($files as $file) {
   if($file !== "." && $file !== "..") {
@@ -22,7 +22,7 @@ foreach($files as $file) {
 <?php
 if(isset($_GET['file'])) {
   $file_name = $_GET['file'];
-  $file_path = "uploads/".$file_name;
+  $file_path = "http://xn--123-9i9d979b.chuangzhi.cn.eu.org/uploads/".$file_name;
   if(file_exists($file_path)) {
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename='.basename($file_path));
